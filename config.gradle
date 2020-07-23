@@ -1,0 +1,30 @@
+
+ext {
+
+  group = 'com.c332030.spring'
+  version = '0.0.1-SNAPSHOT'
+
+  charset = 'utf-8'
+
+  versions = [
+
+    common_java: '0.0.1-SNAPSHOT'
+    , common_mybatis: '0.0.1-SNAPSHOT'
+
+    , spring_boot: '2.2.6.RELEASE'
+    , spring_cloud: 'Hoxton.SR6'
+
+    , mybatis_starter: '2.1.1'
+    , mapper_starter: '2.1.5'
+    , pagehelper_starter: '1.2.13'
+
+    , apache_commons_lang3: '3.9'
+    , apache_commons_collections: '4.4'
+    , apache_commons_io: '2.6'
+
+    , google_gson: '2.8.6'
+    , google_guava: '29.0-jre'
+
+    , reflections: '0.9.12'
+  ]
+}

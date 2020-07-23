@@ -1,0 +1,128 @@
+def versions = rootProject.ext.versions
+
+buildscript {
+
+  apply from: 'config.gradle'
+
+  versions = rootProject.ext.versions
+
+  repositories {
+
+    mavenLocal()
+
+    maven {
+      url 'https://nexus.local.c332030.com/repository/maven-public/'
+    }
+  }
+
+  dependencies {
+    /* 添加插件依赖路径（通过jar方式） */
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.spring_boot}" as Object)
+  }
+}
+
+subprojects {
+
+  apply plugin: 'java-library'
+  apply plugin: 'maven-publish'
+  apply plugin: 'org.springframework.boot'
+  apply plugin: 'io.spring.dependency-management' /* 依赖管理，用来传递spring的依赖 */
+
+  group = rootProject.ext.group
+  version = rootProject.ext.version
+
+  [compileJava, compileTestJava, javadoc]*.options*.encoding = rootProject.ext.charset
+
+  jar.enabled = true
+  bootJar.enabled = false
+
+  java {
+    withJavadocJar()
+    withSourcesJar()
+  }
+
+  repositories {
+
+    mavenLocal()
+
+    maven {
+      url 'https://nexus.local.c332030.com/repository/maven-public/'
+    }
+
+    mavenCentral()
+  }
+
+  dependencies {
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {
+      exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    // mariadb
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client'
+
+    testImplementation group: 'junit', name: 'junit'
+
+    // lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok'
+
+    testCompileOnly group: 'org.projectlombok', name: 'lombok'
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok'
+
+  }
+
+  publishing {
+    publications {
+
+      maven(MavenPublication) {
+
+        artifact sourcesJar
+        artifact javadocJar
+        artifact jar
+
+        // artifact bootJar
+      }
+    }
+
+    repositories {
+
+      maven {
+
+        def releasesRepoUrl = "https://nexus.local.c332030.com/repository/maven-releases/"
+        def snapshotsRepoUrl = "https://nexus.local.c332030.com/repository/maven-snapshots/"
+        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+        credentials {
+          username 'admin'
+          password '123456'
+        }
+      }
+    }
+  }
+
+  // 避免 mapper xml 未复制到 classes 目录
+  sourceSets {
+    //noinspection GroovyAssignabilityCheck
+    main {
+      //noinspection GroovyAssignabilityCheck
+      resources {
+        //可以将java目录下的所有非.java资源打包到classes下
+        srcDir 'src/main/java'
+      }
+    }
+  }
+
+  // 测试配置
+  test {
+    // include '**/Test*.class'
+
+    exclude '**/*Test*.class'
+  }
+
+}
