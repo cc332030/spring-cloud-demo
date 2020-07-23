@@ -1,2 +1,5 @@
 
 rootProject.name = 'springcloud'
+
+include 'eureka-server'
+include 'eureka-client'

@@ -52,6 +52,12 @@ subprojects {
     mavenCentral()
   }
 
+  dependencyManagement {
+    imports {
+      mavenBom "org.springframework.cloud:spring-cloud-dependencies:${versions.spring_cloud}"
+    }
+  }
+
   dependencies {
 
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
@@ -118,10 +124,16 @@ subprojects {
     }
   }
 
+  test {
+
+  }
+
+
   // 测试配置
   test {
-    // include '**/Test*.class'
+    useJUnitPlatform()
 
+    // include '**/Test*.class'
     exclude '**/*Test*.class'
   }
 

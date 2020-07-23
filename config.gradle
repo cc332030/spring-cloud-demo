@@ -11,7 +11,7 @@ ext {
     common_java: '0.0.1-SNAPSHOT'
     , common_mybatis: '0.0.1-SNAPSHOT'
 
-    , spring_boot: '2.2.6.RELEASE'
+    , spring_boot: '2.3.1.RELEASE'
     , spring_cloud: 'Hoxton.SR6'
 
     , mybatis_starter: '2.1.1'
