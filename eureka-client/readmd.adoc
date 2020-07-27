@@ -1,4 +1,3 @@
-
 = eureka-client
 
 http://localhost:8762/hi?name=forezp
