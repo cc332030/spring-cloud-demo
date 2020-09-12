@@ -1,0 +1,4 @@
+
+= service-ribbon 服务消费者
+
+http://localhost:8764/hi?name=forezp

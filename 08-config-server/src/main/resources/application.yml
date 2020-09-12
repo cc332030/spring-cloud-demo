@@ -1,0 +1,17 @@
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/c332030/SpringcloudConfig
+          searchPaths: respo
+#          username:
+#          password:
+      label:
+        master

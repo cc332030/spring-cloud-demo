@@ -1,0 +1,36 @@
+package com.c332030.springcloud.service.feign.service;
+
+import org.springframework.web.client.RestTemplate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+/**
+ * <p>
+ * Description: HelloService
+ * </p>
+ *
+ * @author c332030
+ * @version 1.0
+ */
+@Service
+public class HelloService {
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    // 断路器，指定熔断错误方法
+    @HystrixCommand(fallbackMethod = "hiError")
+    public String hiService(String name) {
+
+        // url 不区分大小写
+        return restTemplate.getForObject("http://service-hi/hi?name="+name, String.class);
+    }
+
+    public String hiError(String name) {
+        return "hi,"+name+",sorry,error!";
+    }
+
+}

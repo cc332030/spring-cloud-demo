@@ -1,0 +1,4 @@
+
+= eureka-client 服务提供者
+
+http://localhost:8762/hi?name=forezp

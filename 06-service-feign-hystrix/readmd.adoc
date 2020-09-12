@@ -1,0 +1,4 @@
+
+= service-feign-hystrix 服务消费者 添加断路器
+
+http://localhost:8765/hi?name=forezp

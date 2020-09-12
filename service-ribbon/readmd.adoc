@@ -1,4 +1,0 @@
-
-= service-ribbon
-
-http://localhost:8764/hi?name=forezp

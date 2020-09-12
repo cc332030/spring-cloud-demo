@@ -1,8 +1,24 @@
 
 rootProject.name = 'springcloud'
 
-include 'eureka-server'
-include 'eureka-client'
+include '01-eureka-server'
+include '02-eureka-client'
 
-include 'service-ribbon'
-include 'service-feign'
+// 两种服务调用方式
+include '03-service-ribbon'
+include '04-service-feign'
+
+// 添加 断路器
+include '05-service-ribbon-hystrix'
+include '06-service-feign-hystrix'
+
+// 路由
+include '07-service-zuul'
+
+// 分布式配置中心
+include '08-config-server'
+include '09-config-client'
+
+include '10-config-eureka-server'
+include '11-config-server-eureka-client'
+include '12-config-client-eureka-client'

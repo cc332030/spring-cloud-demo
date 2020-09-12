@@ -1,0 +1,31 @@
+
+= config-server
+
+http://localhost:8888/foo/dev
+
+[source,json]
+----
+{
+  "name": "foo",
+  "profiles": [
+    "dev"
+  ],
+  "label": "master",
+  "version": "792ffc77c03f4b138d28e89b576900ac5e01a44b",
+  "state": null,
+  "propertySources": []
+}
+
+----
+
+http请求地址和资源文件映射如下:
+
+[sourec,text]
+----
+/{application}/{profile}[/{label}]
+/{application}-{profile}.yml
+/{label}/{application}-{profile}.yml
+/{application}-{profile}.properties
+/{label}/{application}-{profile}.properties
+
+----

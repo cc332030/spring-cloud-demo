@@ -1,0 +1,27 @@
+
+# later then bootstrap.yml
+
+server:
+  port: 8881
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/
+
+spring:
+  application:
+#    name: config-client-eureka-client
+#    对应 config-client-dev.properties 文件
+    name: config-client
+  cloud:
+    config:
+      label: master
+      profile: dev
+#      uri: http://localhost:8888/
+#      uri: http://config-server-eureka-client/
+      discovery:
+#        从配置中心读取文件
+        enabled: true
+#        配置中心的servieId，即服务名
+        serviceId: config-server-eureka-client

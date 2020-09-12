@@ -1,0 +1,4 @@
+
+= config-eureka-server
+
+http://localhost:8889/
