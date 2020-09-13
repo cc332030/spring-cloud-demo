@@ -55,5 +55,12 @@ include '16-service-miya'
 include '17-eureka-server-multi'
 include '18-service-hi-for-eureka-server-multi'
 
-// 未完成
+// 自动注册，未完成
 include '19-eureka-server-multi-auto'
+
+/**
+ * 断路器监控
+ *
+ * 和 01-eureka-server 一起用
+ */
+include '20-server-hi-for-hystrix-dashboard'
