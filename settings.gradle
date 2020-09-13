@@ -1,5 +1,5 @@
 
-rootProject.name = 'springcloud'
+rootProject.name = 'spring-cloud-demo'
 
 /**
  * eureka
