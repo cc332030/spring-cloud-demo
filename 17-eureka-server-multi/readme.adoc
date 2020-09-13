@@ -1,0 +1,22 @@
+
+= eureka-server-multi 注册服务
+
+http://localhost:8761
+http://localhost:8769
+
+添加 application-peer1.yml 和 application-peer2.yml
+
+需要改变 hosts
+
+/etc/hosts
+C:\Windows\System32\drivers\etc\hosts
+
+127.0.0.1 peer1
+127.0.0.1 peer2
+
+会发现两个注册中心都有 service-hi
+
+
+eureka.instance.preferIpAddress=true
+
+是通过设置ip让eureka让其他服务注册它。也许能通过去改变去通过改变host的方式。

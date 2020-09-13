@@ -1,33 +1,59 @@
 
 rootProject.name = 'springcloud'
 
+/**
+ * eureka
+ */
 include '01-eureka-server'
 include '02-eureka-client'
 
-// 两种服务调用方式
+/**
+ * 两种服务调用方式
+ */
 include '03-service-ribbon'
 include '04-service-feign'
 
-// 添加 断路器
+/**
+ * 添加 断路器
+ */
 include '05-service-ribbon-hystrix'
 include '06-service-feign-hystrix'
 
-// 路由
+/**
+ * 路由
+ */
 include '07-service-zuul'
 
-// 分布式配置中心
+/**
+ * 分布式配置中心
+ */
 include '08-config-server'
 include '09-config-client'
 
-// 分布式配置中心注册服务
+/**
+ * 分布式配置中心注册服务
+ */
 include '10-config-eureka-server'
 include '11-config-server-eureka-client'
 include '12-config-client-eureka-client'
 
-// 添加消息总线
+/**
+ * 添加消息总线
+ */
 include '13-config-client-eureka-client-bus'
 
-// 服务链路追踪
+/**
+ * 服务链路追踪
+ */
 include '14-server-zipkin'
 include '15-service-hi'
 include '16-service-miya'
+
+/**
+ * 高可用的服务注册中心
+ */
+include '17-eureka-server-multi'
+include '18-service-hi-for-eureka-server-multi'
+
+// 未完成
+include '19-eureka-server-multi-auto'
