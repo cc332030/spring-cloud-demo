@@ -1,0 +1,8 @@
+
+= gateway
+
+替换 zuul
+
+http://localhost:8764/get
+
+curl --dump-header - --header Host: www.hystrix.com http://localhost:8764/delay/3

@@ -66,3 +66,8 @@ include '19-eureka-server-multi-auto'
 include '20-server-hi-for-hystrix-dashboard'
 include '21-service-lucy'
 include '22-service-turbine'
+
+/**
+ * Gateway 替换 zuul
+ */
+include '23-gateway'
