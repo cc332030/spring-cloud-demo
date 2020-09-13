@@ -1,0 +1,13 @@
+
+= server-hi-for-hystrix-dashboard
+
+http://localhost:8762/hi
+
+// 访问前先访问 http://localhost:8762/hi，不然一直 ping
+http://localhost:8762/actuator/hystrix.stream
+
+
+http://localhost:8762/hystrix
+
+界面输入：
+http://localhost:8762/actuator/hystrix.stream 、2000 、miya

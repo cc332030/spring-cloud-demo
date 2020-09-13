@@ -64,3 +64,5 @@ include '19-eureka-server-multi-auto'
  * 和 01-eureka-server 一起用
  */
 include '20-server-hi-for-hystrix-dashboard'
+include '21-service-lucy'
+include '22-service-turbine'
