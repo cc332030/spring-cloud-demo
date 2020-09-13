@@ -1,0 +1,4 @@
+
+= config-client-eureka-client-bus
+
+http://localhost:8988/hi

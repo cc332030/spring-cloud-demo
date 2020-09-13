@@ -19,6 +19,15 @@ include '07-service-zuul'
 include '08-config-server'
 include '09-config-client'
 
+// 分布式配置中心注册服务
 include '10-config-eureka-server'
 include '11-config-server-eureka-client'
 include '12-config-client-eureka-client'
+
+// 添加消息总线
+include '13-config-client-eureka-client-bus'
+
+// 服务链路追踪
+include '14-server-zipkin'
+include '15-service-hi'
+include '16-service-miya'
