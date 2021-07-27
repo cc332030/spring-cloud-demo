@@ -16,6 +16,7 @@ allprojects {
   apply plugin: 'maven-publish'
   apply plugin: 'org.springframework.boot'
   apply plugin: 'io.spring.dependency-management' /* 依赖管理，用来传递spring的依赖 */
+  apply plugin: 'idea'
 
   [compileJava, compileTestJava, javadoc]*.options*.encoding = rootProject.ext.charset
 
@@ -25,6 +26,13 @@ allprojects {
   java {
     withJavadocJar()
     withSourcesJar()
+  }
+
+  idea {
+    module {
+      downloadJavadoc = false
+      downloadSources = false
+    }
   }
 
   repositories {
