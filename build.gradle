@@ -1,20 +1,13 @@
-def versions = rootProject.ext.versions
 
 buildscript {
 
-  apply from: 'config.gradle'
-
-  versions = rootProject.ext.versions
-
   repositories {
-    maven {
-      url 'https://nexus.local.c332030.com/repository/maven-public/'
-    }
+    mavenCentral()
   }
 
   dependencies {
     /* 添加插件依赖路径（通过jar方式） */
-    classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.spring_boot}" as Object)
+    classpath(group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.3.1.RELEASE')
   }
 }
 
@@ -39,14 +32,12 @@ subprojects {
   }
 
   repositories {
-    maven {
-      url 'https://nexus.local.c332030.com/repository/maven-public/'
-    }
+    mavenCentral()
   }
 
   dependencyManagement {
     imports {
-      mavenBom "org.springframework.cloud:spring-cloud-dependencies:${versions.spring_cloud}"
+      mavenBom group: 'org.springframework.cloud', name: 'spring-cloud-dependencies', version: 'Hoxton.SR6'
     }
   }
 
@@ -73,57 +64,17 @@ subprojects {
 
   }
 
-  publishing {
-    publications {
-
-      maven(MavenPublication) {
-
-        artifact sourcesJar
-        artifact javadocJar
-        artifact jar
-
-        // artifact bootJar
-      }
-    }
-
-    repositories {
-
-      maven {
-
-        def releasesRepoUrl = "https://nexus.local.c332030.com/repository/maven-releases/"
-        def snapshotsRepoUrl = "https://nexus.local.c332030.com/repository/maven-snapshots/"
-        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-        credentials {
-          username 'admin'
-          password '123456'
-        }
-      }
-    }
-  }
-
-  // 避免 mapper xml 未复制到 classes 目录
   sourceSets {
-    //noinspection GroovyAssignabilityCheck
     main {
-      //noinspection GroovyAssignabilityCheck
       resources {
-        //可以将java目录下的所有非.java资源打包到classes下
         srcDir 'src/main/java'
       }
     }
   }
 
-  test {
-
-  }
-
 
   // 测试配置
   test {
-    useJUnitPlatform()
-
-    // include '**/Test*.class'
     exclude '**/*Test*.class'
   }
 
