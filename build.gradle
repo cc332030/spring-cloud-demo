@@ -33,7 +33,7 @@ allprojects {
 
   dependencyManagement {
     imports {
-      mavenBom group: 'org.springframework.cloud', name: 'spring-cloud-dependencies', version: 'Hoxton.SR6'
+      mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR6'
     }
   }
 
