@@ -71,3 +71,23 @@ include '22-service-turbine'
  * Gateway 替换 zuul
  */
 include '23-gateway'
+
+
+
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+def isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
+dependencyResolutionManagement {
+
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    if (isWindows) {
+      maven {
+        url "https://nexus.local.c332030.com/repository/maven-public"
+      }
+    } else {
+      mavenCentral()
+    }
+  }
+}
