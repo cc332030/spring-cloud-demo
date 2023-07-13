@@ -1,7 +1,15 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
 
   repositories {
-    maven { url 'https://nexus.local.c332030.com/repository/maven-public' }
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+      maven {
+        url "https://nexus-local.c332030.com/repository/maven-public"
+      }
+    } else {
+      mavenCentral()
+    }
   }
 
   dependencies {
