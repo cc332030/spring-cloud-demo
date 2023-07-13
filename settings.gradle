@@ -84,7 +84,7 @@ dependencyResolutionManagement {
   repositories {
     if (isWindows) {
       maven {
-        url "https://nexus.local.c332030.com/repository/maven-public"
+        url "https://nexus-local.c332030.com/repository/maven-public"
       }
     } else {
       mavenCentral()
