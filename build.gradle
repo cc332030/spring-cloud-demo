@@ -37,7 +37,7 @@ allprojects {
 
     toolchain {
       languageVersion = JavaLanguageVersion.of(8)
-      vendor = JvmVendorSpec.IBM_SEMERU
+//      vendor = JvmVendorSpec.IBM_SEMERU
     }
   }
 
